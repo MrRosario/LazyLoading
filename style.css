@@ -1,0 +1,88 @@
+:root {
+    --dark-bg-color: #000000;
+    --light-bg-color: #F5F5F5;
+}
+*{
+    margin: 0;
+}
+
+body.light-mode{ background-color: var(--light-bg-color); }
+body.light-mode h1{ color: #000000;  margin-bottom: 30px;}
+body.light-mode header{ background-color: #8B8989; }
+
+body.dark-mode{ background-color: var(--dark-bg-color); }
+body.dark-mode h1{ color: #ffffff; margin-bottom: 30px;}
+body.dark-mode header{ background-color: #363636; }
+/* 
+Chrome 76 +, Chrome for Android 76 +, Android webview 76 +,
+Firefox 67 +, Firefox for Android 67 +,
+Safari 12.1 +, Safari on iOS 13 + 
+*/
+@media (prefers-color-scheme: dark) {
+    body{ background-color: var(--dark-bg-color) !important; }
+    h1{ color: #ffffff !important; margin-bottom: 30px; }
+    header{ background-color: #363636 !important; }
+}
+/* @media (prefers-color-scheme: light) {
+    body.light-mode{ background-color: var(--light-bg-color) !important; }
+    h1{ color: #000000 !important; }
+    header{ background-color: #8B8989 !important; } 
+}  */
+header{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+header .tooltiptext{
+    visibility: hidden; 
+    width: 150px;
+    height: 16px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    top: 52px;
+    left: 42%;
+    z-index: 1;
+}
+.imgContainer:hover .tooltiptext {
+    visibility: visible;
+} 
+header .img_mode{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+main{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+main img{
+    width: 100%;
+    height: 580px;
+    margin-bottom: 40px;
+    transform: translateX(50%);  
+    opacity: 0.2;
+    transition: all 2s;
+}
+.fade{
+    opacity: 1.0;
+    transform: translateX(0);  
+    transition: all 2s;
+    position: relative;
+    top: -20px;
+    animation-name: moveImg;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+@keyframes moveImg{
+    0% { top: 0; }
+    50% { top: -10px; }
+    100% { top: -20px;}
+}
